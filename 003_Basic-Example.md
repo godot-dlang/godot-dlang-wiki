@@ -220,6 +220,10 @@ Hit play button, and...
 
 Holy sh... 
 
+
+https://user-images.githubusercontent.com/22953563/236861576-e02ce430-c0dc-4f95-bbaf-eade9a51e878.mp4
+
+
 ![rotatorbug.mp4](media/ch003/rotatorbug.mp4)
 
 Oh no, our script is bugged and doesn't works as expected, we have to deal with this problem and fix it but we don't even know where to start.
