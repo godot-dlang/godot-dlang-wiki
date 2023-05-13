@@ -218,7 +218,7 @@ Don't forget to save the scene.
 
 Hit play button, and...
 
-Holy sh... 
+Oh no, look at our sprite, it is bugged!
 
 
 https://user-images.githubusercontent.com/22953563/236861576-e02ce430-c0dc-4f95-bbaf-eade9a51e878.mp4
