@@ -26,7 +26,7 @@ Basic programming and command-line skills is required. This guide itself is not 
 
 Before diving in here is an overview of what to expect. Many of the steps described in these recipes is now automated, however as an advanced users or contributors these steps allows to better understand underlying tech.
 
-Note that we start with we will work on a cloned repo instead of dub package because this guide is written for potential contributors.
+Note that we will work on a cloned repo instead of dub package because this guide is written for potential contributors.
 
 The guide starts from setting up the required tools, it then guides the reader through how to create godot project and godot-dlang GDExtension from scratch, we then build a overly simplified game component and show how to debug game, we close the tutorial with godot-dlang architecture design overview and building godot for debugging it more efficiently as the official godot releases doesn't have debug symbols with them making debugging experience shallow.
 
