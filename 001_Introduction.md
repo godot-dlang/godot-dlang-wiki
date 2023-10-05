@@ -11,7 +11,7 @@
 
 # Introduction
 
-This guide introduces reader to a godot-dlang development, it contains sections for both game and the bindings development and is aimed to help reader getting familiar with contributing to the project.
+This guide introduces the reader to godot-dlang development, it contains sections for both game and the bindings development and is aimed at helping the reader getting familiar with contributing to the project.
 
 ## Skill requirements
 
@@ -24,12 +24,12 @@ Basic programming and command-line skills is required. This guide itself is not 
 
 ## What to expect
 
-Before diving in here is an overview of what to expect. Many of the steps described in these recipes is now automated, however as an advanced users or contributors these steps allows to better understand underlying tech.
+Before diving in here is an overview of what to expect. Many of the steps described in these recipes are now automated, however as an advanced user or contributor these steps allows the reader to better understand underlying tech.
 
 Note that we will work on a cloned repo instead of dub package because this guide is written for potential contributors.
 
-The guide starts from setting up the required tools, it then guides the reader through how to create godot project and godot-dlang GDExtension from scratch, we then build a overly simplified game component and show how to debug game, we close the tutorial with godot-dlang architecture design overview and building godot for debugging it more efficiently as the official godot releases doesn't have debug symbols with them making debugging experience shallow.
+The guide starts from setting up the required tools, it then guides the reader through how to create godot project and godot-dlang GDExtension from scratch. We then build an overly simplified game component and show how to debug game. We close the tutorial with an overview of the godot-dlang architecture design and instructions on building godot for debugging. The official godot releases don't have debug symbols which makes the debugging experience shallow.
 
-We don't plan writting end-to-end complete guide or anything extra hard, these skills should help reader to understand the workflow without getting into hardcore assembly or ABI details which even though helpful but not strictly necessary.
+We don't plan writing end-to-end complete guide or anything extra hard, these skills should help reader to understand the workflow without getting into hardcore assembly or ABI details which even though helpful but not strictly necessary.
 
 The guide was originally written using as a reference Issue 121 [Floating point bug](https://github.com/godot-dlang/godot-dlang/issues/121)

@@ -4,7 +4,7 @@ Now that we have our environment set up we can start by manually creating a proj
 
 This step will demonstrate how godot and GDExtension works, and how godot-dlang extension is loaded.
 
-What we are going to do in this capter:
+What we are going to do in this chapter:
 * Create new empty godot project
 * Create and configure GDExtension
 * Implement basic node script that rotates around its axis
@@ -13,7 +13,7 @@ What we are going to do in this capter:
 
 If you have followed godot-dlang readme you should be already familiar with this step, but we will guide you anyway.
 
-Let's create an empty Godot project, open Godot editor now, it will show project launcher window, choose `"New project"` on the side, fill in project name and location and hit `"Create & Edit"`, the project now should open up in the editor.
+Let's create an empty Godot project, open the Godot editor now, it will show project launcher window, choose `"New project"` on the side, fill in project name and location and hit `"Create & Edit"`, the project now should open up in the editor.
 
 ![createproject.png](media/ch003/createproject.png)
 
@@ -21,7 +21,7 @@ You can keep the editor open or close it, now we proceed to creating our first G
 
 ## Creating our first GDExtension
 
-Open up your project folder in terminal and let's create our first godot-dlang extension using terminal and your favorite text editor, we will be using VSCode for the rest of this tutorial.
+Open up your project folder in the terminal and let's create our first godot-dlang extension using terminal and your favorite text editor, we will be using VSCode for the rest of this tutorial.
 
 In this example we will use nested D project folder per extension, and we will configure build rules to copy the resulting binary to a desired location. 
 Such setup not necessarily is the best, as there will be tons of files in project explorer view.
@@ -66,13 +66,13 @@ $ cd ..
 $ code .
 ```
 
-> _If you are confused what are these dots - `cd ..` tells terminal to go up one folder, `code .` tells vscode to open current location._
+> _If you are confused by these dots - `cd ..` tells the terminal to go up one folder, `code .` tells vscode to open current location._
 
 Now we need to create new game object class, then we create and configure new godot extension.
 
-Inside VSCode find and delete `source/app.d` file, and inside of source folder create new file `rotator.d`
+Inside VSCode find and delete `demoextension/source/app.d` file, and inside of source folder create new file `rotator.d`
 
-In this demo project we will make simple script that rotates an object it is attached to indefinitely with a constant turn rate every frame.
+In this demo project we will make a simple script that rotates an object it is attached to indefinitely with a constant turn rate every frame.
 
 Create a new file under `source` folder and name it `rotator.d`, paste in the following code:
 
@@ -106,7 +106,7 @@ mixin GodotNativeLibrary!(
 );
 ```
 
-> We have extra check here that checks if we are running in the editor. Often your game code will manipulate objects on scene, while in this simple example it won't really hurt anything besides messing up rotation if you accidentally attach it to a wrong object, in more realistic use cases this might lead to immediate editor crash if your script do something wrong.
+> We have code here that checks if we are running in the editor `if (Engine.isEditorHint)`. Often your game code will manipulate objects on scene, while in this simple example it won't really hurt anything besides messing up rotation if you accidentally attach it to a wrong object. In a more realistic use case this might lead to an immediate editor crash if your script do something wrong.
 
 Before we build we need to change build target type to create dynamic library as GDExtension expects a dynamic library to be load and unload it at run time.
 
@@ -118,7 +118,7 @@ Open dub.json and add the targetType property after name, don't forget the comma
 "targetPath": "../"
 ```
 
-Note that we still specify target name for our outputs, this is because for some reason dub creates a targets with parent folder name, could be a code-d issue because we are using 'workspace' in VS Code.
+Note that we still specify target name for our outputs, this is because for some reason dub creates a target with the parent folder name, could be a code-d issue because we are using 'workspace' in VS Code.
 
 This is how it should look like now, notice the last two lines
 
@@ -150,7 +150,7 @@ $ cd demoextension
 ```
 
 Now run the build, it **will fail** but that is expected and is normal. 
-We might of course generate bindings beforehand to let it build succesfully, however our intent is to use custom working copy.
+We might of course generate bindings beforehand to let it build successfully, however our intent is to use a custom working copy.
 
 ```sh
 $ dub build
@@ -218,7 +218,7 @@ Don't forget to save the scene.
 
 Hit play button, and...
 
-Oh no, look at our sprite, it is bugged!
+Oh no, look at our sprite, it has a bug!
 
 
 https://user-images.githubusercontent.com/22953563/236861576-e02ce430-c0dc-4f95-bbaf-eade9a51e878.mp4
@@ -226,7 +226,7 @@ https://user-images.githubusercontent.com/22953563/236861576-e02ce430-c0dc-4f95-
 
 ![rotatorbug.mp4](media/ch003/rotatorbug.mp4)
 
-Oh no, our script is bugged and doesn't works as expected, we have to deal with this problem and fix it but we don't even know where to start.
+Oh no, our script has a bug and doesn't works as expected. We have to deal with this problem and fix it but we don't even know where to start.
 
 For more dramatic effect you can offset an `Icon` to make rotate with offset to clearly observe the bug.
 
