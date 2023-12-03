@@ -1,12 +1,12 @@
 # Getting Started
 
 This section introduces software and tools used in development.
-Some of the tools is optional, such tools has extra added value but not strictly necessary for work, in some situations however they are invaluable.
+Some of the tools are optional, such tools have extra added value but are not strictly necessary for work. In some situations however they are invaluable.
 
 ## Prerequisites
 
-This section lists the basic tools requirements that are suitable to both developing your own game extensions and godot-dlang itself. 
-For begginers these tools is a requirement, without these tools development is not possible.
+This section lists the basic tools required to both develop your own game extensions and godot-dlang itself. 
+For beginners these tools are a requirement, without these tools development is not possible.
 
 Note: DMD is a reference D compiler, it is fast but produces average speed code, LDC2 is another compiler based on LLVM that produces much faster code and is recommended for production builds of your apps but otherwise is optional.
 
@@ -37,7 +37,7 @@ Recommended Visual Studio Code extension:
 * code-d - D and dub support
 * CodeLLDB - mainly used in pair with LDC compiler on Linux
 
-This is the most basic tools you need to get started developing and debugging godot-dlang.
+These are the most basic tools you need to get started developing and debugging godot-dlang.
 
 Make sure you have dub and D compilers available in `PATH` environment variable otherwise the further commands will fail.
 
@@ -46,7 +46,7 @@ Linux D installer script provides handy scripts to enable temporary aliases that
 ## Let's test it out
 
 Open your terminal and run the following commands to make sure everything is ready.
-Here is a liste of terminal commands and their respective output, the command has $ symbol appended for ease of reading and is not a part of the actual command.
+Here is a list of terminal commands and their respective output. Yhe command has $ symbol appended for ease of reading and is not a part of the actual command.
 
 ```sh
 $ git --version
@@ -69,7 +69,7 @@ $ godot --version
 4.0.1.stable.custom_build.cacf49999
 ```
 
-Your versions might be different but that's ok, also notice that I am using custom debug build, this way it has full debug information available, more info about this in later chapters.
+Your versions might be different but that's ok, also notice that I am using a custom debug build, this way it has full debug information available, more info about this in later chapters.
 
 If any of the commands fails make sure you have your OS `PATH` environment variable have correct path to that programs, on Windows after adding `PATH` entries you need to restart terminal to see the changes.
 
@@ -102,26 +102,20 @@ Wait until it finishes and you are ready for the next step.
 ## Generating bindings
 
 There is one major step required before we can dive into code.
-Because GDExtension is designed to enable use of practically any language, it prodives only some basic C API's for interoperability, these are changed infrequently so we have premade bindings for them, however actual game framework classes can change from version to version and are supposed to be (re)generated with every godot release.
+Because GDExtension is designed to enable use of practically any language, it provides only some basic C API's for interoperability, these are changed infrequently so we have pre-made bindings for them, however actual game framework classes can change from version to version and are supposed to be (re)generated with every godot release.
 
 That's what we are going to do now.
 First let's generate Godot bindings API.
 
 ```sh
+$ cd /home/username/godot-dlang
 $ godot --dump-extension-api
+$ dub run :generator -- -j extension_api.json -o
 ```
 
 This will tell godot to emit special JSON file with information about engine types and classes, named `extension_api.json`.
 
 Now we need to build D bindings from this information, but first step inside cloned `godot-dlang` folder.
-
-```sh
-$ cd /home/username/godot-dlang
-```
-
-```sh
-$ dub run :generator -- -j path/to/extension_api.json -o
-```
 
 In the end you should see something like this
 ```
